@@ -5,13 +5,14 @@ def application(environ, start_response):
     d = parse_qs(environ['QUERY_STRING'])
     a = d.get('a', [''])[0]
     b = d.get('b', [''])[0]
-    if '' not in [a, b]:
+    sum, product = 0, 0
+    try:
         a, b = int(a), int(b)
         response_body = html % {
             'sum' : a + b,
             'product' : a * b,
         }
-    else :
+    except ValueError:
         response_body = html % {
             'sum' : 'input number',
             'product' : 'input number', 
