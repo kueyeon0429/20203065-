@@ -13,8 +13,8 @@ def application(environ, start_response):
         }
     else :
         response_body = html % {
-            'sum' : '',
-            'product' : '',
+            'sum' : 'input number',
+            'product' : 'input number', 
         }
     start_response('200 OK', [
         ('Content-Type', 'text/html'),
